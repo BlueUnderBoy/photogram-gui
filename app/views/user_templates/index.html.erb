@@ -42,7 +42,7 @@
           <td>
           </td>
         </tr>
-        <% @user.each do | a_user |%>
+        <% @users.each do |a_user|%>
         <tr>
           <td>
             <%= a_user.id %>
@@ -56,8 +56,10 @@
             </a>
           </td>
         </tr>
+        <% end %>
       </tbody>
     </table>
-
   </body>
 </html>
+
+  
