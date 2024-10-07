@@ -64,7 +64,25 @@
           <th>
           </th>
         </tr>
-
+        <% @user_images.each do |a_i|%>
+        <tr>
+          <td>
+            <a href="<%= a_i.image %>"></a>
+          </td>
+          <td>
+            <%= @user.username %>
+          </td>
+          <td>
+            <%= a_i.caption %>
+          </td>
+          <td>
+            <%= a_i.created_at %>
+          </td>
+          <td>
+            <a href="/photos/<%= a_i.id %>">Show details</a>
+          </td>
+        </tr>
+        <% end %>
       </tbody>
     </table>
   </body> 

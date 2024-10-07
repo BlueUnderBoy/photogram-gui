@@ -7,6 +7,7 @@ class PhotosController < ApplicationController
   def show
     image = params.fetch(:path_id)
     @photo = Photo.where({:id => image}).at(0)
+    @photo_comm = Comment.where({:photo_id => @photo.id})
     render({:template => "photo_templates/show"})
   end
 
@@ -39,6 +40,10 @@ class PhotosController < ApplicationController
   end
 
   def delete 
-    
+    the_id = params.fetch("path_id")
+    matching_photo = Photo.where({:id => the_id})
+    the_photo = matching_photo.at(0)
+    the_photo.destroy
+    redirect_to("/photos")
   end 
 end

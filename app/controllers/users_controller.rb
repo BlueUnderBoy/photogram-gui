@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def show
     person = params.fetch(:path_username)
     @user = User.where({:username => person}).at(0)
+    @user_images = Photo.where({:owner_id => @user.id})
     render({:template => "user_templates/show"})
   end
 
