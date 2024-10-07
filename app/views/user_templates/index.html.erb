@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Target: Photogram GUI</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="/users">Users</a>
+        </li>
+        <li>
+          <a href="/photos">Photos</a>
+        </li>
+      </ul>
+    </nav>
+
+    <h1>List of users</h1>
+
+    <form action="/add_user" method="post">
+      <label for="username">Username</label>
+      <input id="username" type="text" name="username" placeholder="Enter a username...">
+
+      <button>Add user</button>
+    </form>
+
+    <hr>
+
+    <table border="1">
+      <tbody>
+        <tr>
+          <th>
+            ID
+          </th>
+
+          <th>
+            Username
+          </th>
+
+          <td>
+          </td>
+        </tr>
+        <% @user.each do | a_user |%>
+        <tr>
+          <td>
+            <%= a_user.id %>
+          </td>
+          <td>
+            <%= a_user.username %>
+          </td>
+          <td>
+            <a href="/users/<%= a_user.username %>">
+              Show details
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </body>
+</html>
