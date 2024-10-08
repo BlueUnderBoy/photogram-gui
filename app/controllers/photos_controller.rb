@@ -29,7 +29,7 @@ class PhotosController < ApplicationController
     the_id = params.fetch("path_id")
     @the_photo = Photo.find(the_id)
 
-    @the_photo.username = params.fetch("username")
+    @the_photo.image = params.fetch("image")
 
     if @the_photo.valid?
       @the_photo.save
