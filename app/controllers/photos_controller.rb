@@ -30,6 +30,7 @@ class PhotosController < ApplicationController
     @the_photo = Photo.find(the_id)
 
     @the_photo.image = params.fetch("image")
+    @the_photo.caption = params.fetch("caption")
 
     if @the_photo.valid?
       @the_photo.save
